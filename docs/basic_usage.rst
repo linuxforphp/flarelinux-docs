@@ -32,7 +32,7 @@ command in the terminal, and wait for the server to finish bootstrapping (approx
 
     $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-beta flare --coston
 
-You will then get a command-line interface similar to this one :
+You will then get a command-line interface similar to this one:
 
 .. image:: /images/basic_usage01.png
 
