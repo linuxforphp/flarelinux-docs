@@ -30,7 +30,7 @@ Coston Network
 Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
 command in the terminal, and wait for the server to finish bootstrapping (approx. 5 minutes)::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-beta flare --coston
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc1 flare --coston
 
 You will then get a command-line interface similar to this one:
 
@@ -38,18 +38,18 @@ You will then get a command-line interface similar to this one:
 
 You can run the server in detached mode by adding the 'd' option, like so::
 
-    $ docker run -dit --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-beta flare --coston
+    $ docker run -dit --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc1 flare --coston
 
 You can change the version of the Flare server node, by adding a Git commit hash to end of the command, like so::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-beta flare --coston e9ca17eace0
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc1 flare --coston e9ca17eace0
 
 Local Network
 --------------
 
 If you prefer, you can run a local Flare node, by running the following command instead::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-beta flare --local
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc1 flare --local
 
 ---------------------------
 Start testing the Flare API
