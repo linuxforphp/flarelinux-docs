@@ -3,7 +3,7 @@
 What's New in Version 1.0
 ===========================
 
-New Since Version 1.0.0 (Jul 26, 2021)
+New Since Version 1.0.0 (Sep 27, 2021)
 --------------------------------------
 
 * New features:
