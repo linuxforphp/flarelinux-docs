@@ -72,7 +72,7 @@ If you prefer, you can run a local Flare node, by running the following command 
     $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --local
 
 ---------------------------
-Start testing the Flare API
+Start Testing the Flare API
 ---------------------------
 
 Use `Postman <https://www.postman.com/>`_ to start querying your server's API: `VIDEO TUTORIAL <https://youtu.be/NPvu6xJ7tsk?t=2447>`_,
@@ -82,3 +82,28 @@ Use `Postman <https://www.postman.com/>`_ to start querying your server's API: `
 To stop the Flare server, please enter the following command::
 
     $ docker stop my_flare_server
+
+---------------------
+Environment Variables
+---------------------
+
+You can set some environment variables in order to change the default values of the Flare server nodes
+at runtime.
+
+You can do so by adding the 'e' option as often as needed, like so::
+
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server -e FLARE_BIND_ADDRESS="0.0.0.0" -e FLARE_XRP_APIs="https://xrpl.flare.network:443" asclinux/flarelinux:1.0.0-rc2 flare --songbird
+
+Here is a complete list of all environment variables that will be taken into account by the Flare Linux
+container at runtime:
+
+.. list-table:: Environment Variables
+   :widths: 40 60
+   :header-rows: 1
+
+   * - Variable
+     - Description
+   * - FLARE_BIND_ADDRESS
+     - Bind the Flare server to a specified network address
+   * - FLARE_XRP_APIs
+     - Change the list of XRPL API servers
