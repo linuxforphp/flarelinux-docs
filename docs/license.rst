@@ -2,6 +2,8 @@
 
 .. index:: License
 
+.. _license:
+
 Flare Linux License
 =====================
 

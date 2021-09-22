@@ -1,5 +1,9 @@
 .. _BasicUsageAnchor:
 
+.. index:: Basic Usage
+
+.. _basic usage:
+
 ===========
 Basic Usage
 ===========

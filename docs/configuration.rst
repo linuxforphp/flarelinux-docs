@@ -1,5 +1,9 @@
 .. _ConfigurationAnchor:
 
+.. index:: Configuration
+
+.. _configuration:
+
 =============
 Configuration
 =============

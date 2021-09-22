@@ -1,5 +1,9 @@
 .. _InstallationAnchor:
 
+.. index:: Installation
+
+.. _installation:
+
 Installation
 ============
 
