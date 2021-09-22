@@ -11,6 +11,7 @@ Welcome to the Flare Linux Documentation
 
    installation
    basic_usage
+   configuration
    whats_new
    license
 
