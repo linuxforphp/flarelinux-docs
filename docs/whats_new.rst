@@ -7,7 +7,7 @@ New Since Version 1.0.0 (Sep 27, 2021)
 --------------------------------------
 
 * New features:
-    - All Flare dependencies have been upgraded to requirements of commit #d00ed147e4b
+    - All Flare dependencies have been upgraded to latest requirements
 
 * Updated OS software/libraries:
     - bind (9.16.5)
@@ -134,7 +134,6 @@ New Since Version 1.0.0 (Sep 27, 2021)
     - Patch (2.7.5)
     - PCRE (8.41)
     - Perl (5.24.0)
-    - PHP (5.6.40, 7.0.33, 7.1.33, 7.2.31, 7.3.18, 7.4.6 or 8.0.0-dev)
     - Pkg-config (0.29.1)
     - PostgreSQL (9.6.4)
     - Procps (3.3.12)
