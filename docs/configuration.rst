@@ -9,8 +9,8 @@ Configuration
 =============
 
 The Flare Linux Docker image allows for runtime configuration. You can do so by passing in environment
-variables to the container on startup, or by sharing configuration files with the container that is
-running the Flare server nodes.
+variables to the container on startup, or by sharing files with the container that is running the
+Flare server nodes.
 
 ---------------------
 Environment Variables
@@ -21,7 +21,7 @@ at runtime.
 
 You can do so by adding the 'e' option as often as you need to, like so::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server -e FLARE_BIND_ADDRESS="0.0.0.0" asclinux/flarelinux:1.0.0-rc2 flare --songbird
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server -e FLARE_BIND_ADDRESS="0.0.0.0" asclinux/flarelinux:1.0.0 flare --songbird
 
 Here is a complete list of all environment variables that will be taken into account by the Flare Linux
 container at runtime:
@@ -33,43 +33,26 @@ container at runtime:
    * - Variable
      - Description
    * - FLARE_BIND_ADDRESS
-     - Bind the Flare server to a specified network address
+     - Bind the Flare server to a specified network interface
 
--------------------
-Configuration Files
--------------------
+-------------
+Sharing Files
+-------------
 
-It is also possible to configure the Flare Linux container at runtime by sharing configuration files.
+It is also possible to share files with the Flare Linux container at runtime.
 
 You can do so by adding the 'v' option as often as you need to, like so::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server -v ${PWD}/chain_apis.json:/home/flare/conf/songbird/chain_apis.json asclinux/flarelinux:1.0.0-rc2 flare --songbird
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server -v ${PWD}/.flare:/home/flareuser/.flare asclinux/flarelinux:1.0.0 flare --coston
 
-Here is an example of what the `chain_apis.json` might look like:
+------------------------------
+Installing Additional Software
+------------------------------
 
-.. code-block:: json
+You can install additional software by using the lfphp-get utility.
 
-    {
-        "LTC": [
-            {
-                "api": "https://litecoin.flare.network/",
-                "auth": "basic",
-                "u": "public",
-                "p": "gA4Yv3cnuXrIvP_7VIZjW1yliZ9GAclj1Td6tRITc6s="
-            },
-            {
-                "api": "https://litecoin-0.flare.network/",
-                "auth": "basic",
-                "u": "public",
-                "p": "gA4Yv3cnuXrIvP_7VIZjW1yliZ9GAclj1Td6tRITc6s="
-            }
-        ],
-        "XRP": [
-            {
-                "api": "https://xrpl.flare.network/"
-            },
-            {
-                "api": "https://xrpl-1.flare.network/"
-            }
-        ]
-    }
+For example, to install the Ethereum tools, you can run the following command, from inside the container::
+
+    # lfphp-get ethereum-utils
+
+For more information on this utility, please see the `Linux for PHP Documentation <https://linux-for-php-documentation.readthedocs.io/en/latest/advanced_features.html#package-installation-using-the-lfphp-get-command>`_.

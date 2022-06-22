@@ -17,7 +17,34 @@ live or test modes.
 Flare Linux Live Mode
 ---------------------
 
-Flare Linux Live mode will be available soon.
+When running Flare Linux in live mode, you will run a node on the Songbird Network (Canary).
+
+Songbird Network
+----------------
+
+.. note:: You must be whitelisted by Flare in order to connect to the live network. Please see the `Flare website <https://flare.xyz/putting-songbird-in-flight/>`_.
+
+Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
+command in the terminal, and wait for the server to finish bootstrapping (might take some time)::
+
+    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare --songbird
+
+To check the state of the 'C' chain, you can watch the logs of the server with this command, from inside
+the container::
+
+    $ docker exec -it my_flare_server /bin/bash
+
+You will then get a command-line interface similar to this one:
+
+.. image:: /images/basic_usage01.png
+
+Then, from inside the container::
+
+    # tail -f /home/flareuser/.flare/logs/C.log
+
+You should then see the Songbird node's logs, like so:
+
+.. image:: /images/basic_usage02.png
 
 .. index:: Test mode
 
@@ -25,55 +52,36 @@ Flare Linux Live mode will be available soon.
 Flare Linux Test Mode
 ---------------------
 
-When running Flare Linux in test mode, you can run the node on the Canary Network (Songbird),
-the Coston network (test network), or on your local network only.
-
-Canary Network
---------------
-
-Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
-command in the terminal::
-
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --songbird
-
-You will then get a command-line interface similar to this one:
-
-.. image:: /images/basic_usage01.png
-
-You can run the server in detached mode by adding the 'd' option, like so::
-
-    $ docker run -dit --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --songbird
-
-You can change the version of the Flare server node, by adding a Git commit hash to the end of the command, like so::
-
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --songbird a1f141b4562
+When running Flare Linux in test mode, you will either connect to the Coston network (test network),
+or use a local test network.
 
 Coston Network
 --------------
 
 Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
-command in the terminal, and wait for the server to finish bootstrapping (approx. 5 minutes)::
+command in the terminal, and wait for the server to finish bootstrapping (might take a few minutes)::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --coston
+    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare --coston
 
-You will then get a command-line interface similar to this one:
+To check the state of the 'C' chain, you can watch the logs of the server with this command from inside
+the container::
 
-.. image:: /images/basic_usage02.png
+    $ docker exec -it my_flare_server /bin/bash
 
-You can run the server in detached mode by adding the 'd' option, like so::
+Then, from inside the container::
 
-    $ docker run -dit --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --coston
+    # tail -f /home/flareuser/.flare/logs/C.log
 
-You can change the version of the Flare server node, by adding a Git commit hash to the end of the command, like so::
+You can also run the server in interactive mode by removing the 'd' option, like so::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --coston e9ca17eace0
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare --coston
 
 Local Network
 --------------
 
 If you prefer, you can run a local Flare node, by running the following command instead::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0-rc2 flare --local
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=127.0.0.1 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare
 
 ---------------------------
 Start Testing the Flare API
@@ -81,9 +89,13 @@ Start Testing the Flare API
 
 Use `Postman <https://www.postman.com/>`_ to start querying your server's API: `VIDEO TUTORIAL <https://youtu.be/NPvu6xJ7tsk?t=2447>`_,
 
-.. note:: Make sure the "P" and "C" chains are bootstrapped, before making other queries!
+.. note:: Make sure the "C" chain is bootstrapped, before making other queries!
 
-To stop the Flare server, please enter the following command (or press `Ctrl+C`)::
+-----------------------
+Stopping the Flare Node
+-----------------------
 
-    $ docker stop my_flare_server
+To stop the Flare server, please enter the following command (or press `Ctrl+C` in interactive mode)::
+
+    $ docker rm -f my_flare_server
 
