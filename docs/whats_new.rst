@@ -3,6 +3,13 @@
 What's New in Version 1.0
 ===========================
 
+New Since Version 1.0.1 (Aug 16, 2022)
+--------------------------------------
+
+* Updated OS software/libraries:
+    - Songbird Node (0.6.2)
+
+
 New Since Version 1.0.0 (Jun 15, 2022)
 --------------------------------------
 

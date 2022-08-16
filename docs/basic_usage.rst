@@ -27,7 +27,7 @@ Songbird Network
 Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
 command in the terminal, and wait for the server to finish bootstrapping (might take some time)::
 
-    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare --songbird
+    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare --songbird
 
 To check the state of the 'C' chain, you can watch the logs of the server with this command, from inside
 the container::
@@ -61,7 +61,7 @@ Coston Network
 Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
 command in the terminal, and wait for the server to finish bootstrapping (might take a few minutes)::
 
-    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare --coston
+    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare --coston
 
 To check the state of the 'C' chain, you can watch the logs of the server with this command from inside
 the container::
@@ -74,14 +74,14 @@ Then, from inside the container::
 
 You can also run the server in interactive mode by removing the 'd' option, like so::
 
-    $ docker run -it --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare --coston
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare --coston
 
 Local Network
 --------------
 
 If you prefer, you can run a local Flare node, by running the following command instead::
 
-    $ docker run -it --rm -e FLARE_BIND_ADDRESS=127.0.0.1 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.0 flare
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=127.0.0.1 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare
 
 ---------------------------
 Start Testing the Flare API
