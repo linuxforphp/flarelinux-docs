@@ -28,5 +28,5 @@ see the following pages:
 
 Requirements (on top of the Docker specifications):
 
-* An additional 8 GB of RAM for each Node server you wish to run on your computer,
-* An additional 100 GB of storage (HDD or SSD).
+* An additional 16 GB of RAM for each Node server you wish to run on your computer,
+* An additional 500 GB of storage (HDD or SSD).

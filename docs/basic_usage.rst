@@ -17,17 +17,19 @@ live or test modes.
 Flare Linux Live Mode
 ---------------------
 
-When running Flare Linux in live mode, you will run a node on the Songbird Network (Canary).
+When running Flare Linux in live mode, you will run a node on the Songbird Network (Canary), or on the Flare Network.
+
+.. note:: You must be whitelisted by Flare in order to connect to the live network. Please see the `Flare website <https://flare.xyz/putting-songbird-in-flight/>`_.
+
+.. index:: Songbird Network
 
 Songbird Network
 ----------------
 
-.. note:: You must be whitelisted by Flare in order to connect to the live network. Please see the `Flare website <https://flare.xyz/putting-songbird-in-flight/>`_.
-
 Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
 command in the terminal, and wait for the server to finish bootstrapping (might take some time)::
 
-    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare --songbird
+    $ docker run -dit --restart=always -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --songbird
 
 To check the state of the 'C' chain, you can watch the logs of the server with this command, from inside
 the container::
@@ -46,22 +48,55 @@ You should then see the Songbird node's logs, like so:
 
 .. image:: /images/basic_usage02.png
 
+If you want to run a Songbird Validator node, open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
+command in the terminal, and wait for the server to finish bootstrapping (might take some time)::
+
+    $ docker run -dit --restart=always -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --songbird-validator
+
+.. note:: You must have validator keys to run a validator node. Please see the `Flare documentation <https://docs.flare.network/infra/validation/deploying>`_.
+
+.. index:: Flare Network
+
+Flare Network
+-------------
+
+Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
+command in the terminal, and wait for the server to finish bootstrapping (might take some time)::
+
+$ docker run -dit --restart=always -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --flare-observer
+
+To check the state of the 'C' chain, you can watch the logs of the server with this command, from inside
+the container::
+
+    $ docker exec -it my_flare_server /bin/bash
+
+Then, from inside the container::
+
+    # tail -f /home/flareuser/.flare/logs/C.log
+
+If you want to run a Flare Validator node, open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
+command in the terminal, and wait for the server to finish bootstrapping (might take some time)::
+
+    $ docker run -dit --restart=always -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --flare-validator
+
+.. note:: You must have validator keys to run a validator node. Please see the `Flare's website <https://docs.flare.network/infra/validation/deploying>`_.
+
 .. index:: Test mode
 
 ---------------------
 Flare Linux Test Mode
 ---------------------
 
-When running Flare Linux in test mode, you will either connect to the Coston network (test network),
-or use a local test network.
+When running Flare Linux in test mode, you will either connect to the Coston Network 1,
+the Coston Network 2, or use a local test network.
 
-Coston Network
---------------
+Coston Network 1
+----------------
 
 Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
 command in the terminal, and wait for the server to finish bootstrapping (might take a few minutes)::
 
-    $ docker run -dit --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare --coston
+    $ docker run -dit --restart=always -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --flare-coston1
 
 To check the state of the 'C' chain, you can watch the logs of the server with this command from inside
 the container::
@@ -74,14 +109,35 @@ Then, from inside the container::
 
 You can also run the server in interactive mode by removing the 'd' option, like so::
 
-    $ docker run -it --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare --coston
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --flare-coston1
+
+Coston Network 2
+----------------
+
+Open a Bash or a ZSH terminal (Mac or Linux), or a Powershell CLI (Windows), and enter the following
+command in the terminal, and wait for the server to finish bootstrapping (might take a few minutes)::
+
+    $ docker run -dit --restart=always -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --flare-coston2
+
+To check the state of the 'C' chain, you can watch the logs of the server with this command from inside
+the container::
+
+    $ docker exec -it my_flare_server /bin/bash
+
+Then, from inside the container::
+
+    # tail -f /home/flareuser/.flare/logs/C.log
+
+You can also run the server in interactive mode by removing the 'd' option, like so::
+
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=0.0.0.0 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare --flare-coston2
 
 Local Network
 --------------
 
 If you prefer, you can run a local Flare node, by running the following command instead::
 
-    $ docker run -it --rm -e FLARE_BIND_ADDRESS=127.0.0.1 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.0.1 flare
+    $ docker run -it --rm -e FLARE_BIND_ADDRESS=127.0.0.1 -p 9650:9650 --name my_flare_server asclinux/flarelinux:1.1.0 flare
 
 ---------------------------
 Start Testing the Flare API
