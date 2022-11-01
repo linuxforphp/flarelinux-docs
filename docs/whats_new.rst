@@ -3,6 +3,12 @@
 What's New in Version 1.0
 ===========================
 
+New Since Version 1.1.2 (Oct 31, 2022)
+--------------------------------------
+
+* Updated OS software/libraries:
+    - Flare Node (0.7.1)
+
 New Since Version 1.1.1 (Oct 11, 2022)
 --------------------------------------
 
