@@ -1,0 +1,61 @@
+{
+    "name": "linuxforphp/linuxforcomposer",
+    "description": "A Composer interface to run 'Linux for PHP' Docker containers, Dockerfiles or docker-compose files.",
+    "single": {
+        "image": {
+            "linuxforcomposer": {
+                "php-versions": [
+                    "8.1"
+                ],
+                "script": [
+                    "pip install --upgrade pip",
+                    "/srv/tempo/flarelinux-docs/data/lfphpdevuser.bash",
+                    "cd /srv/tempo/flarelinux-docs/docs || exit 1",
+                    "pip install -r requirements.txt",
+                    "su - vagrant -c 'cd /srv/tempo/flarelinux-docs/docs || exit 1 ; make html ; /bin/bash'"
+                ],
+                "thread-safe": "false"
+            },
+            "dockerfile": {
+                "url": "",
+                "container-name": "",
+                "username": "",
+                "token": ""
+            }
+        },
+        "containers": {
+            "modes": {
+                "mode2": "interactive",
+                "mode3": "tty"
+            },
+            "ports": {
+                "port1": [
+                    "18181:80"
+                ]
+            },
+            "volumes": {
+                "volume1": "${PWD}/:/srv/tempo/flarelinux-docs",
+                "volume2": ""
+            },
+            "persist-data": {
+                "mount": "false",
+                "root-name": "",
+                "directories": {
+                    "directory1": "",
+                    "directory2": "",
+                    "directory3": ""
+                }
+            }
+        }
+    },
+    "docker-compose": {
+        "url": "",
+        "username": "",
+        "token": ""
+    },
+    "lfphp-cloud": {
+        "account": "",
+        "username": "",
+        "token": ""
+    }
+}
