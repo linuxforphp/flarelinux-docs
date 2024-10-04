@@ -3,8 +3,14 @@
 What's New in Version 1.0
 ===========================
 
+New Since Version 1.1.4-1.7.1807-0.6.6 (Sep 27, 2024)
+-----------------------------------------------------
+
+* Updated OS software/libraries:
+    - Songbird Node (0.6.6)
+
 New Since Version 1.1.2-1.7.1807-0.6.5 (Mar 18, 2024)
------------------------------------------------
+-----------------------------------------------------
 
 * Updated OS software/libraries:
     - Flare Node (1.7.1807)
