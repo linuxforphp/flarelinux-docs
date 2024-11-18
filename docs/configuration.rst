@@ -21,7 +21,7 @@ at runtime.
 
 You can do so by adding the 'e' option as often as you need to, like so::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server -e FLARE_BIND_ADDRESS="0.0.0.0" asclinux/flarelinux:1.1.4-1.7.1807-0.6.6 flare --flare-coston1
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server -e FLARE_BIND_ADDRESS="0.0.0.0" asclinux/flarelinux:1.1.5-1.9.0-0.7.0 flare --flare-coston1
 
 Here is a complete list of all environment variables that will be taken into account by the Flare Linux
 container at runtime:
@@ -43,7 +43,7 @@ It is also possible to share files with the Flare Linux container at runtime.
 
 You can do so by adding the 'v' option as often as you need to, like so::
 
-    $ docker run -it --rm -p 9650:9650 --name my_flare_server -v ${PWD}/.flare:/home/flareuser/.flare asclinux/flarelinux:1.1.4-1.7.1807-0.6.6 flare --flare-coston1
+    $ docker run -it --rm -p 9650:9650 --name my_flare_server -v ${PWD}/.flare:/home/flareuser/.flare asclinux/flarelinux:1.1.5-1.9.0-0.7.0 flare --flare-coston1
 
 ------------------------------
 Installing Additional Software
