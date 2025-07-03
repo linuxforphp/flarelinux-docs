@@ -3,11 +3,18 @@
 What's New in Version 1.0
 ===========================
 
+New Since Version 1.1.6-1.11.0 (Jul 3, 2025)
+-----------------------------------------------------
+
+* Updated OS software/libraries:
+    - Flare/Songbird Node (1.11.1)
+    - Adds the new 'http-allowed-hosts' option.
+
 New Since Version 1.1.6-1.10.0 (Apr 16, 2025)
 -----------------------------------------------------
 
 * Updated OS software/libraries:
-    - Flare/Songbird Node (1.9.1)
+    - Flare/Songbird Node (1.10.1)
 
 New Since Version 1.1.6-1.9.1 (Dec 3, 2024)
 -----------------------------------------------------
