@@ -33,7 +33,9 @@ container at runtime:
    * - Variable
      - Description
    * - FLARE_BIND_ADDRESS
-     - Bind the Flare server to a specified network interface
+     - Bind the Flare node to a specified network interface
+   * - FLARE_ALLOWED_HOSTS
+     - Bind the Flare node to specified virtual host names for API requests (default: localhost, or * if FLARE_BIND_ADDRESS is set to 0.0.0.0)
 
 -------------
 Sharing Files
