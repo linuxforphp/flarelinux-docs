@@ -3,11 +3,17 @@
 What's New in Version 1.0
 ===========================
 
+New Since Version 1.2.0-1.11.0 (Sep 3, 2025)
+-----------------------------------------------------
+
+* Updated OS software/libraries:
+    - Adds new CLI environment variables.
+
 New Since Version 1.1.6-1.11.0 (Jul 3, 2025)
 -----------------------------------------------------
 
 * Updated OS software/libraries:
-    - Flare/Songbird Node (1.11.1)
+    - Flare/Songbird Node (1.11.0)
     - Adds the new 'http-allowed-hosts' option.
 
 New Since Version 1.1.6-1.10.0 (Apr 16, 2025)
